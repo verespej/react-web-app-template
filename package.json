@@ -34,6 +34,7 @@
     ]
   },
   "devDependencies": {
+    "http-proxy-middleware": "^0.20.0",
     "redux-immutable-state-invariant": "^2.1.0"
   }
 }
