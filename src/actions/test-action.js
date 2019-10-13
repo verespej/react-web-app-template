@@ -1,15 +1,28 @@
 import fetch from 'isomorphic-fetch';
 
-import { createActionCreator } from './create-action-creator';
+import {
+  createActionCreator,
+  createRequestStatusActionCreator,
+  REQUEST_STATUS_ERROR,
+  REQUEST_STATUS_FULFILLED,
+  REQUEST_STATUS_PENDING,
+} from './create-action-creator';
 
-export const testActionCreator = createActionCreator(
+export const setTestValueActionCreator = createActionCreator(
   'ACTION_TYPE_SET_TEST_VALUE',
-  'testValue',
+  'value',
+);
+
+export const setTestValueRequestStatusActionCreator = createRequestStatusActionCreator(
+  'ACTION_TYPE_SET_TEST_VALUE_REQUEST_STATUS'
 );
 
 export function updateTestValue() {
   return dispatch => {
-    // TODO: Dispatch pending request status
+    dispatch(setTestValueRequestStatusActionCreator.create({
+      requestStatus: REQUEST_STATUS_PENDING,
+      details: null,
+    }));
 
     return fetch('/api/random-number')
       .then(response => {
@@ -19,10 +32,17 @@ export function updateTestValue() {
         return response.json();
       })
       .then(result => {
-        return dispatch(testActionCreator.create({ testValue: result.value }));
+        dispatch(setTestValueRequestStatusActionCreator.create({
+          requestStatus: REQUEST_STATUS_FULFILLED,
+          details: null,
+        }));
+        dispatch(setTestValueActionCreator.create({ value: result.value }));
       })
       .catch(err => {
-        // TODO: Dispatch error
+        dispatch(setTestValueRequestStatusActionCreator.create({
+          requestStatus: REQUEST_STATUS_ERROR,
+          details: err,
+        }));
       });
   };
 }
