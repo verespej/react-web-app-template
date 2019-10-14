@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-
-import { configureReduxStore } from 'helpers/configure-redux-store'
+import { BrowserRouter } from 'react-router-dom';
 
 import { App } from './app';
-
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     (
-      <Provider store={ configureReduxStore() }>
+      <BrowserRouter>
         <App />
-      </Provider>
+      </BrowserRouter>
     ),
     div
   );

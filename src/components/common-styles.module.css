@@ -1,0 +1,5 @@
+/* When using these, consider whether a component should be created instead. */
+
+.display-group {
+  margin-bottom: 1rem;
+}
