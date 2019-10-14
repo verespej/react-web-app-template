@@ -2,10 +2,10 @@ import mockedFetch from 'isomorphic-fetch';
 
 import { REQUEST_STATUS_FULFILLED } from './create-action-creator';
 import {
-  setTestValueActionCreator,
-  setTestValueRequestStatusActionCreator,
-  updateTestValue,
-} from './test-action';
+  setExampleValueActionCreator,
+  setExampleValueRequestStatusActionCreator,
+  updateExampleValue,
+} from './example-action';
 
 jest.mock('isomorphic-fetch');
 
@@ -13,26 +13,26 @@ it('calls server and dispatches an action', () => {
   const mockDispatch = jest.fn(() => {});
 
   mockedFetch.mockResolvedValue({
-    json: () => ({ testValue: Math.random() }),
+    json: () => ({ value: Math.random() }),
     status: 200,
   });
 
-  const thunk = updateTestValue();
+  const thunk = updateExampleValue();
   return thunk(mockDispatch).then(() => {
     let dispatchedRequestFulfilled = false;
-    let dispatchedSetTestValue = false;
+    let dispatchedSetExampleValue = false;
 
     mockDispatch.mock.calls.forEach(call => {
-      if (call[0].type === setTestValueRequestStatusActionCreator.type &&
+      if (call[0].type === setExampleValueRequestStatusActionCreator.type &&
         call[0].requestStatus === REQUEST_STATUS_FULFILLED) {
         dispatchedRequestFulfilled = true;
       }
-      if (call[0].type === setTestValueActionCreator.type) {
-        dispatchedSetTestValue = true;
+      if (call[0].type === setExampleValueActionCreator.type) {
+        dispatchedSetExampleValue = true;
       }
     })
 
     expect(dispatchedRequestFulfilled).toBe(true);
-    expect(dispatchedSetTestValue).toBe(true);
+    expect(dispatchedSetExampleValue).toBe(true);
   });
 });

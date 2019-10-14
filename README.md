@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a template project for creating a new React web app. At its base, it was set up with [Create React App](https://github.com/facebook/create-react-app). A few useful modules were added on top, along with some example code leveraging them.
 
-## Available Scripts
+## Making a copy
 
-In the project directory, you can run:
+### Fork
+
+If you don't care about your copy being linked back to this repo, you can just fork it.
+
+### Copy
+
+This is a good option if you (1) don't want your new repo to be linked back to this one and (2) don't care about the repo history.
+
+First, create a new repo in GitHub. Then:
+
+```shell
+git clone <this repo url>
+cd react-web-app-template
+rm -rf .git
+git init
+git add .
+git commit -m "First commit"
+git remote add origin <new repo url>
+git push -u origin master
+```
+
+You'll probably also want to rename the folder you created when you cloned the repo to whatever the name of the new project is.
+
+### Copy with git history
+
+If you want to retain the git history, you can do the following.
+
+First, create a new repo in GitHub. Then:
+
+```shell
+git clone --bare <this repo url>
+cd react-web-app-template.git
+git push --mirror <new repo url>
+cd ..
+rm -rf old-repository.git
+```
+
+To start working with your new repo, just clone as normal.
+
+## Dependencies
+
+The following's been added on top of what's included with Create React App:
+
+* Material UI
+  * `@material-ui/core`
+  * `@material-ui/icons`
+  * `typeface-roboto`
+* React Router
+  * `react-router-dom`
+* Redux
+  * `redux`
+  * `react-redux`
+  * `redux-thunk`
+* Utilities
+  * `isomorphic-fetch`
+  * `lodash`
+
+## Common commands
+
+Before starting up, make sure to `npm install`.
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Run the app in the development mode. Includes linting and automatic reloading.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run tests in watch mode..
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Additional notes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Refer to the [Create React App Guide](https://create-react-app.dev/) for additional command and notes on how to manage the app.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+To detach from Create React App, see the [guidance on ejecting](https://create-react-app.dev/docs/available-scripts#npm-run-eject).

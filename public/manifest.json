@@ -1,6 +1,6 @@
 {
-  "short_name": "Template Web App",
-  "name": "Template Web App",
+  "short_name": "Web App",
+  "name": "React Web App",
   "icons": [
     {
       "src": "favicon.ico",

@@ -2,34 +2,34 @@ import { Button } from '@material-ui/core';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateTestValue } from 'actions/test-action';
+import { updateExampleValue } from 'actions/example-action';
 import { RouteButton } from 'components/route-button';
 import { ROUTE_PATH_HOME_SCREEN } from 'helpers/constants';
-import { getTestValue, getTestValueRequestStatusAndDetails } from 'reducers/test-reducer';
+import { getExampleValue, getExampleValueRequestStatusAndDetails } from 'reducers/example-reducer';
 
 import commonStyles from './common-styles.module.css';
 
-export const RandomNumberGenerator = connect(
+export const ExampleScreen = connect(
   state => ({
-    testValue: getTestValue(state),
-    testValueRequestStatus: getTestValueRequestStatusAndDetails(state).valueRequestStatus,
+    value: getExampleValue(state),
+    valueRequestStatus: getExampleValueRequestStatusAndDetails(state).valueRequestStatus,
   }),
   {
-    updateTestValue: testValue => updateTestValue(testValue),
+    updateValue: value => updateExampleValue(value),
   },
 )(props => {
-  function setRandomTestValue() {
-    props.updateTestValue(Math.random().toString())
+  function updateValue() {
+    props.updateValue(Math.random().toString())
   }
 
   return (
     <React.Fragment>
       <div className={ commonStyles['display-group'] }>
-        <div><b>Request status:</b> { props.testValueRequestStatus }</div>
-        <div><b>Value:</b> { props.testValue || 0 }</div>
+        <div><b>Request status:</b> { props.valueRequestStatus }</div>
+        <div><b>Value:</b> { props.value || 0 }</div>
       </div>
       <div className={ commonStyles['display-group'] }>
-        <Button onClick={ setRandomTestValue } variant="contained">
+        <Button onClick={ updateValue } variant="contained">
           Generate new value
         </Button>
       </div>

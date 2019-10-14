@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import 'typeface-roboto'; // For material-ui (see https://material-ui.com/components/typography/#general
+import 'typeface-roboto'; // For material-ui (see https://material-ui.com/components/typography/#general)
 
 import { App } from 'components/app';
 import { configureReduxStore } from 'helpers/configure-redux-store';

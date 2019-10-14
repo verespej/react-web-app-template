@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { RouteButton } from 'components/route-button'
-import { ROUTE_PATH_RANDOM_NUMBER_GENERATOR } from 'helpers/constants';
+import { ROUTE_PATH_EXAMPLE_SCREEN } from 'helpers/constants';
 import logo from 'static-assets/logo.svg';
 
 import homeScreenStyles from './home-screen.module.css';
@@ -18,8 +18,8 @@ export function HomeScreen() {
         cloned for quickly spinning up new web apps.
       </div>
       <div className={ commonStyles['display-group'] }>
-        <RouteButton to={ ROUTE_PATH_RANDOM_NUMBER_GENERATOR } variant="contained">
-          Try the random number generator
+        <RouteButton to={ ROUTE_PATH_EXAMPLE_SCREEN } variant="contained">
+          Check out an example screen
         </RouteButton>
       </div>
     </React.Fragment>
