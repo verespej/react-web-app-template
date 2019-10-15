@@ -29,7 +29,7 @@ export function createActionCreator(type, ...requiredProperties) {
         throw new Error('"properties" must be a non-array object');
       }
 
-      const incomingKeys = Object.keys(properties)
+      const incomingKeys = Object.keys(properties);
       requiredProperties.forEach(requiredKey => {
         if (!incomingKeys.includes(requiredKey)) {
           throw new Error(`Missing required property: ${requiredKey}`);

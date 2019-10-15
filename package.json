@@ -7,13 +7,15 @@
     "@material-ui/icons": "^4.5.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.0.1",
+    "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "typeface-roboto": "0.0.75"
   },
   "scripts": {
@@ -23,7 +25,14 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "indent": ["error", 2, { "SwitchCase": 1 }],
+      "jsx-quotes": ["error", "prefer-double"],
+      "no-console": ["error", { "allow": ["error"] }],
+      "quotes": ["error", "single", { "avoidEscape": true }],
+      "semi": ["error", "always"]
+    }
   },
   "browserslist": {
     "production": [

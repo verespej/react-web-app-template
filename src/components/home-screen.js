@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RouteButton } from 'components/route-button'
+import { RouteButton } from 'components/route-button';
 import { ROUTE_PATH_EXAMPLE_SCREEN } from 'helpers/constants';
 import logo from 'static-assets/logo.svg';
 
