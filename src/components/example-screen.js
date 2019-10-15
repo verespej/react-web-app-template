@@ -1,4 +1,5 @@
 import { Button } from '@material-ui/core';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -12,12 +13,13 @@ import {
   getExampleValueRequestStatusAndDetails,
 } from 'reducers/example-reducer';
 
+import styles from './example-screen.module.css';
 import commonStyles from './common-styles.module.css';
 
 function _ExampleScreen(props) {
   return (
     <React.Fragment>
-      <div className={ commonStyles['display-group'] }>
+      <div className={ classnames(commonStyles['display-group'], styles['display-panel']) }>
         <div><b>Request status:</b> { props.valueRequestStatus }</div>
         <div><b>Value:</b> { props.value || 0 }</div>
         <div><b>Percent:</b> { props.valueAsPercent }%</div>

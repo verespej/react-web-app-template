@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
+    "classnames": "^2.2.6",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
@@ -27,11 +28,77 @@
   "eslintConfig": {
     "extends": "react-app",
     "rules": {
-      "indent": ["error", 2, { "SwitchCase": 1 }],
-      "jsx-quotes": ["error", "prefer-double"],
-      "no-console": ["error", { "allow": ["error"] }],
-      "quotes": ["error", "single", { "avoidEscape": true }],
-      "semi": ["error", "always"]
+      "block-scoped-var": "error",
+      "brace-style": "error",
+      "camelcase": "error",
+      "curly": "error",
+      "eol-last": "error",
+      "eqeqeq": "error",
+      "indent": [
+        "error",
+        2,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "jsx-quotes": [
+        "error",
+        "prefer-double"
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 160
+        }
+      ],
+      "no-alert": "warn",
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "error"
+          ]
+        }
+      ],
+      "no-duplicate-imports": "error",
+      "no-eval": "error",
+      "no-implied-eval": "error",
+      "no-lonely-if": "error",
+      "no-nested-ternary": "error",
+      "no-param-reassign": [
+        "error"
+      ],
+      "no-sequences": "error",
+      "no-shadow": "error",
+      "no-throw-literal": "error",
+      "no-trailing-spaces": "error",
+      "no-use-before-define": "error",
+      "no-var": "error",
+      "prefer-const": "error",
+      "prefer-promise-reject-errors": "error",
+      "quotes": [
+        "error",
+        "single",
+        {
+          "avoidEscape": true
+        }
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "sort-keys": [
+        "error",
+        "asc",
+        {
+          "caseSensitive": false
+        }
+      ],
+      "spaced-comment": [
+        "error",
+        "always"
+      ],
+      "vars-on-top": "error"
     }
   },
   "browserslist": {

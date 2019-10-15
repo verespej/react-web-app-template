@@ -20,8 +20,8 @@ export const setExampleValueRequestStatusActionCreator = createRequestStatusActi
 export function updateExampleValue() {
   return dispatch => {
     dispatch(setExampleValueRequestStatusActionCreator.create({
-      requestStatus: REQUEST_STATUS_PENDING,
       details: null,
+      requestStatus: REQUEST_STATUS_PENDING,
     }));
 
     return fetch('/api/random-number')
@@ -33,15 +33,15 @@ export function updateExampleValue() {
       })
       .then(result => {
         dispatch(setExampleValueRequestStatusActionCreator.create({
-          requestStatus: REQUEST_STATUS_FULFILLED,
           details: null,
+          requestStatus: REQUEST_STATUS_FULFILLED,
         }));
         dispatch(setExampleValueActionCreator.create({ value: result.value }));
       })
       .catch(err => {
         dispatch(setExampleValueRequestStatusActionCreator.create({
-          requestStatus: REQUEST_STATUS_ERROR,
           details: err,
+          requestStatus: REQUEST_STATUS_ERROR,
         }));
       });
   };
